@@ -10,13 +10,9 @@ public class PlayerSpawner : MonoBehaviour
     {
         int selectedChar = PlayerPrefs.GetInt("SelectedCharIndex", 0);
 
-        if (selectedChar >= 0 && selectedChar < characterPrefabs.Count && characterPrefabs[selectedChar] != null)
+        if (characterPrefabs.Count > 0 && characterPrefabs[0] != null)
         {
-            Instantiate(characterPrefabs[selectedChar], spawnPoint.position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning("Selected character index is out of range or prefab is null.");
+            Instantiate(characterPrefabs[0], spawnPoint.position, Quaternion.identity);
         }
     }
 }

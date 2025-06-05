@@ -4,22 +4,26 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private float moveDirection;
-    private Animator animator; // Tambahkan Animator
+    private Animator animator;
+    private Rigidbody2D rb;
 
     void Start()
     {
-        animator = GetComponent<Animator>(); // Ambil komponen Animator dari Player
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        // Ambil input dari tombol A/D atau Left/Right
         moveDirection = Input.GetAxisRaw("Horizontal");
-
-        // Gerakkan karakter hanya maju/mundur (kiri/kanan)
-        transform.position += new Vector3(moveDirection * moveSpeed * Time.deltaTime, 0, 0);
-
-        // Update animator parameter
         animator.SetBool("isWalking", moveDirection != 0);
+
+        if (moveDirection != 0)
+            transform.localScale = new Vector3(Mathf.Sign(moveDirection), 1, 1);
+    }
+
+    void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveDirection * moveSpeed, rb.linearVelocity.y);
     }
 }

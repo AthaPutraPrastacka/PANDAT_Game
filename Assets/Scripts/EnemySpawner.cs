@@ -13,8 +13,15 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int selectedCharacter = GameManager.Instance.selectedCharacter;
-        GameObject enemyToSpawn = enemyPrefabs[selectedCharacter];
-        Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+        if (enemyPrefabs.Length == 0 || enemyPrefabs[0] == null)
+        {
+            Debug.LogWarning("Enemy prefab belum diisi!");
+            return;
+        }
+
+        GameObject enemyToSpawn = enemyPrefabs[0];
+        GameObject enemyInstance = Instantiate(enemyToSpawn, spawnPoint.position, Quaternion.identity);
+        Debug.Log("Spawned enemy: " + enemyInstance.name + " at " + spawnPoint.position);
     }
+
 }

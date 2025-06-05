@@ -1074,7 +1074,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 790034399}
-        m_TargetAssemblyTypeName: NewMonoBehaviourScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: Pindah, Assembly-CSharp
         m_MethodName: GoToSceneLvl
         m_Mode: 1
         m_Arguments:

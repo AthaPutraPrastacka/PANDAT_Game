@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1491840984}
         m_TargetAssemblyTypeName: Pindah, Assembly-CSharp
-        m_MethodName: GoToSceneChr
+        m_MethodName: GoToLvl1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -649,7 +649,7 @@ MonoBehaviour:
   - {fileID: 9213144094657166716, guid: f5bf5761246409a409aac511115335c0, type: 3}
   - {fileID: 7283208010068470340, guid: 96a0279c220def44a89f5631524f0647, type: 3}
   - {fileID: 71735210867836086, guid: ae83ecb0cae2d834ab02ac00dbe345e0, type: 3}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1401041865}
 --- !u!4 &480077471
 Transform:
   m_ObjectHideFlags: 0
@@ -940,6 +940,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013728567}
   m_CullTransparentMesh: 1
+--- !u!1 &1401041864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401041865}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1401041865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401041864}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 896.2241, y: -760.5644, z: -9.995676}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491840979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,3 +1491,4 @@ SceneRoots:
   - {fileID: 1491840983}
   - {fileID: 830389475}
   - {fileID: 480077471}
+  - {fileID: 1401041865}

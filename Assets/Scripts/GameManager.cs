@@ -27,19 +27,4 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Resume game
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-    public static GameManager Instance;
-    public int selectedCharacter = 0;
-
-    void Awake()
-    {
-        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
-        else Destroy(gameObject);
-    }
-
-    public void SelectCharacter(int index)
-    {
-        selectedCharacter = index;
-        Debug.Log("Karakter terpilih: " + index);
-    }
 }
