@@ -17,4 +17,14 @@ public class Pindah : MonoBehaviour
     {
         SceneManager.LoadScene("Lvl1");
     }
+
+    public void GoToSetting()
+    {
+        SceneManager.LoadScene("Setting");
+    }
+
+    public void GoToHome()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

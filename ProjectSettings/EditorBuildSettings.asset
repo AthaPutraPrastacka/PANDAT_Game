@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PilihChara.unity
     guid: 61846456b8a4bf6418d288f4af7c611b
+  - enabled: 1
+    path: Assets/Scenes/Setting.unity
+    guid: 1bbb52b7ca6f94e42abf68b5b0f28016
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement; // untuk reload scene jika nyawa habis
 
 public class PlayerHealth : MonoBehaviour
@@ -29,10 +29,8 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player mati");
-        // Bisa diganti dengan animasi mati, disable player, dll.
+        GameManager.Instance.GameOver();  // ⬅️ penting!
         gameObject.SetActive(false);
-        // Atau reload scene:
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void UpdateLifeUI()

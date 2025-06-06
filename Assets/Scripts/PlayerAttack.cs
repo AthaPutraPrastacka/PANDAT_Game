@@ -23,33 +23,49 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("Menyerang! ⚔️");
         GetComponent<Animator>().SetTrigger("Attack");
-
-        // Cek musuh dalam area serangan
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(attackRange, attackRange), 0f, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Musuh terkena serangan! " + enemy.name);
-            Destroy(enemy.gameObject); // Hancurkan musuh
+
+            // Cek apakah musuh punya EnemyHealth
+            EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(attackDamage);
+            }
+            else
+            {
+                Destroy(enemy.gameObject); // untuk keroco biasa
+                GameManager.Instance.EnemyKilled(); // jika perlu hitung kill
+            }
         }
     }
-
     public void ApplyDamage()
     {
         Debug.Log("Serangan mengenai musuh! ⚔️");
-
-        // Cek musuh dalam area serangan saat animasi menyerang
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(attackRange, attackRange), 0f, enemyLayers);
+            Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(attackRange, attackRange), 0f, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Musuh terkena serangan! " + enemy.name);
-            Destroy(enemy.gameObject); // Hancurkan musuh
+
+            EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(attackDamage);
+            }
+            else
+            {
+                Destroy(enemy.gameObject);
+                GameManager.Instance.EnemyKilled();
+            }
         }
     }
 
 
-    void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;

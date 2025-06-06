@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 58ad2180ac0f8d54aaead625454e305b
+guid: 1b80900351154b04baee225c753a1f59
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4882289648374460230
-    second: PANDAT (1)_0
+      213: -3758809776950050431
+    second: Pandat (Back)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PANDAT (1)_0
+      name: Pandat (Back)_0
       rect:
         serializedVersion: 2
-        x: 781
-        y: 544
-        width: 365
-        height: 107
+        x: 342
+        y: 105
+        width: 396
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab0d21aae6f9e3cb0800000000000000
-      internalID: -4882289648374460230
+      spriteID: 18180a24c6606dbc0800000000000000
+      internalID: -3758809776950050431
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PANDAT (1)_0: -4882289648374460230
+      Pandat (Back)_0: -3758809776950050431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
