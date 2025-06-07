@@ -1,0 +1,67 @@
+=== PANDUAN SETUP LEVEL 3 ===
+
+Level 3 adalah versi yang lebih menantang dari Level 2 dengan perbedaan utama:
+- Enemy Health: 6 hit (Level 2: 3 hit)
+- Boss Health: 20 hit (Level 2: 10 hit)
+- Lebih banyak waves: 4 waves (Level 2: 3 waves)
+- Lebih banyak musuh per wave
+- Boss lebih kuat dan summon lebih banyak minion
+
+1. SETUP SCENE "Lvl 3":
+   a. Copy scene "Lvl 2" dan rename menjadi "Lvl 3"
+   b. Hapus atau disable Level2Manager GameObject
+   c. Buat GameObject kosong baru, rename jadi "Level3Manager"
+   d. Attach script Level3GameManager.cs
+   e. Setup fields di Inspector sama seperti Level 2:
+      - Samurai Prefab: Gunakan prefab samurai yang sama
+      - Spawn Points: Bisa gunakan spawn points yang sama (atau tambah lebih banyak)
+      - Boss Prefab: Gunakan boss prefab yang sama
+      - Boss Spawn Point: Gunakan spawn point yang sama
+      - UI Elements: Connect ke UI yang sama
+
+2. PERBEDAAN DENGAN LEVEL 2:
+   - Musuh butuh 6 hit untuk mati (otomatis di-set oleh script)
+   - Boss butuh 20 hit untuk mati (otomatis di-set oleh script)
+   - 4 waves dengan musuh yang lebih banyak
+   - Musuh bergerak lebih cepat (speed 3)
+   - Boss attack lebih sering dan damage lebih besar:
+     * Normal Attack: 30 damage
+     * AOE Attack: 40 damage
+     * Summon 3 minions (Level 2: 2 minions)
+   - Minion yang di-summon boss juga punya 6 health
+
+3. GAMEPLAY PROGRESSION:
+   Wave 1: 7 musuh
+   Wave 2: 10 musuh (7 + 3)
+   Wave 3: 13 musuh (7 + 6)
+   Wave 4: 16 musuh (7 + 9)
+   Boss Phase: 1 boss dengan 20 health
+
+4. TIDAK ADA PERUBAHAN PADA:
+   - Player setup
+   - Pause menu
+   - Item drops (tetap dinonaktifkan)
+   - Prefab structure
+
+5. OPTIONAL ENHANCEMENTS:
+   - Bisa tambahkan background music yang lebih intens
+   - Bisa ubah warna/tint scene untuk membedakan level
+   - Bisa tambahkan particle effects untuk boss Level 3
+
+6. BUILD SETTINGS:
+   Pastikan scene "Lvl 3" sudah ditambahkan ke Build Settings
+   setelah "Lvl 2" untuk progression yang benar.
+
+7. TEST CHECKLIST LEVEL 3:
+   - 4 waves spawn dengan benar
+   - Musuh butuh 6 hit untuk mati
+   - Musuh bergerak lebih cepat dari Level 2
+   - Boss muncul setelah 4 waves
+   - Boss butuh 20 hit untuk mati
+   - Boss damage lebih besar
+   - Boss summon 3 minions dengan 6 health
+   - Victory screen muncul setelah boss mati
+   - Game Over berfungsi saat player mati
+
+NOTE: Semua script dari Level 2 sudah di-update untuk mendukung Level 3.
+Tidak perlu membuat script baru selain Level3GameManager.cs 

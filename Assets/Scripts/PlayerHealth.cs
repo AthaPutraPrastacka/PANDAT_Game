@@ -29,7 +29,28 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player mati");
-        GameManager.Instance.GameOver();  // ⬅️ penting!
+
+        // Check for Level3GameManager first (for Level 3)
+        Level3GameManager level3Manager = FindObjectOfType<Level3GameManager>();
+        if (level3Manager != null)
+        {
+            level3Manager.GameOver();
+        }
+        // Then check for Level2GameManager (for Level 2)
+        else if (FindObjectOfType<Level2GameManager>() != null)
+        {
+            FindObjectOfType<Level2GameManager>().GameOver();
+        }
+        // Then check for regular GameManager (for Level 1)
+        else if (GameManager.Instance != null)
+        {
+            GameManager.Instance.GameOver();
+        }
+        else
+        {
+            Debug.LogWarning("No GameManager found!");
+        }
+
         gameObject.SetActive(false);
     }
 
@@ -40,5 +61,12 @@ public class PlayerHealth : MonoBehaviour
         {
             lifeIcons[i].SetActive(i < currentLives);
         }
+    }
+    
+    public void Heal(int amount)
+    {
+        currentLives = Mathf.Min(currentLives + amount, maxLives);
+        UpdateLifeUI();
+        Debug.Log($"Player healed! Lives: {currentLives}/{maxLives}");
     }
 }

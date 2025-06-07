@@ -1,0 +1,50 @@
+=== PERBANDINGAN LEVEL 2 vs LEVEL 3 ===
+
++-------------------------+---------------+---------------+
+| PARAMETER               | LEVEL 2       | LEVEL 3       |
++-------------------------+---------------+---------------+
+| ENEMY STATS             |               |               |
+| - Health                | 3 hits        | 6 hits        |
+| - Movement Speed        | Normal (2)    | Fast (3)      |
+| - Attack Damage         | 10            | 15            |
++-------------------------+---------------+---------------+
+| WAVE SYSTEM             |               |               |
+| - Total Waves           | 3 waves       | 4 waves       |
+| - Base Enemies/Wave     | 5             | 7             |
+| - Wave Scaling          | +2 per wave   | +3 per wave   |
+| - Time Between Waves    | 5 seconds     | 4 seconds     |
+| - Spawn Delay           | 0.5 seconds   | 0.4 seconds   |
++-------------------------+---------------+---------------+
+| WAVE PROGRESSION        |               |               |
+| - Wave 1                | 5 enemies     | 7 enemies     |
+| - Wave 2                | 7 enemies     | 10 enemies    |
+| - Wave 3                | 9 enemies     | 13 enemies    |
+| - Wave 4                | -             | 16 enemies    |
+| - TOTAL ENEMIES         | 21            | 46            |
++-------------------------+---------------+---------------+
+| BOSS STATS              |               |               |
+| - Health                | 10 hits       | 20 hits       |
+| - Normal Attack Damage  | 20            | 30            |
+| - AOE Attack Damage     | 30            | 40            |
+| - Normal Attack CD      | 2.5 sec       | 2.0 sec       |
+| - AOE Attack CD         | 8 sec         | 6 sec         |
+| - Summon CD             | 15 sec        | 12 sec        |
+| - Minions Summoned      | 2             | 3             |
+| - Minion Health         | 3 hits        | 6 hits        |
++-------------------------+---------------+---------------+
+| ITEM DROPS              |               |               |
+| - Drop Chance           | 0% (disabled) | 0% (disabled) |
++-------------------------+---------------+---------------+
+| DIFFICULTY RATING       | ★★★☆☆         | ★★★★★         |
++-------------------------+---------------+---------------+
+
+SCRIPTS YANG DIGUNAKAN:
+- Level 2: Level2GameManager.cs
+- Level 3: Level3GameManager.cs
+- Shared: EnemyHealth, BossController, PlayerHealth (updated untuk support kedua level)
+
+NOTES:
+1. Level 3 memiliki total 2x lebih banyak musuh dari Level 2
+2. Boss Level 3 2x lebih tangguh dan 50% lebih agresif
+3. Kedua level tidak memiliki item drop (sesuai permintaan)
+4. Player stats tetap sama di kedua level 

@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pausePanel;
+    public Image pauseBackground; // Untuk background dengan continue.png
     private bool isPaused = false;
     void Start()
     {
@@ -11,7 +13,7 @@ public class PauseManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused)
                 ResumeGame();
@@ -34,15 +36,15 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f; // resume game
     }
 
-    public void RestartGame()
+    public void RestartLevel()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void GoToHome()
+    public void QuitToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // Ganti "MainMenu" dengan nama scene home kamu
+        SceneManager.LoadScene("MainMenu");
     }
 }

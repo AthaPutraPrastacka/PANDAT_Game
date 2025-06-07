@@ -1,0 +1,114 @@
+=== PANDUAN SETUP LEVEL 2 ===
+
+1. SETUP SCENE "Lvl 2":
+   a. Tambahkan GameObject kosong, rename jadi "Level2Manager"
+   b. Attach script Level2GameManager.cs
+   c. Setup fields di Inspector:
+      - Samurai Prefab: Drag prefab samurai untuk bawahan
+      - Spawn Points: Buat 3-5 empty GameObject sebagai spawn point (tambahkan SpawnPointGizmo script untuk visual)
+      - Boss Prefab: Buat prefab boss dari samurai (scale 2x)
+      - Boss Spawn Point: Buat empty GameObject untuk spawn boss
+      - Health Drop Prefab: Buat prefab dengan sprite health + ItemPickup script
+      - Ammo Drop Prefab: Buat prefab dengan sprite ammo + ItemPickup script
+      - Wave Announcement (optional): GameObject dengan Text + WaveAnnouncement script
+
+2. SETUP SAMURAI PREFAB (Bawahan):
+   a. GameObject dengan Sprite Renderer (sprite samurai)
+   b. Add Component:
+      - EnemyHealth (maxHealth = 3)
+      - EnemyMovement
+      - Rigidbody2D (Gravity Scale = 0)
+              - Collider2D
+    c. Tag: "Enemy"
+    d. Layer: Enemy
+
+3. SETUP BOSS PREFAB:
+   a. Duplicate samurai prefab
+   b. Scale transform ke 2x (Scale: 2,2,2)
+   c. Add Component:
+      - BossController
+      - EnemyHealth (maxHealth = 10, isBoss = true)
+   d. Setup BossController fields di Inspector
+
+4. SETUP ITEM DROP PREFABS:
+   a. Health Pickup:
+      - GameObject dengan sprite health
+      - Add ItemPickup script (ItemType = Health)
+      - Add Collider2D (Is Trigger = true)
+   
+   b. Ammo Pickup:
+      - GameObject dengan sprite ammo
+      - Add ItemPickup script (ItemType = Ammo)
+      - Add Collider2D (Is Trigger = true)
+
+5. SETUP UI:
+   a. Canvas dengan:
+      - Text untuk Wave info (assign ke waveText)
+      - Text untuk Enemy Count (assign ke enemyCountText)
+      - Boss Health Bar container dengan Slider
+      - Pause Panel dengan background continue.png
+   
+   b. Pause Panel harus berisi:
+      - Background Image (continue.png)
+      - Button "Resume" -> PauseManager.ResumeGame()
+      - Button "Restart Level" -> PauseManager.RestartLevel()
+      - Button "Quit to Main Menu" -> PauseManager.QuitToMainMenu()
+
+6. SETUP PAUSE MANAGER:
+   a. Add PauseManager script ke GameObject
+   b. Assign Pause Panel
+   c. Assign Pause Background (Image dengan continue.png)
+
+7. SETUP AOE EFFECTS (Optional):
+   a. AOE Warning Prefab:
+      - Empty GameObject dengan Circle sprite
+      - Add AOEEffect script
+      - Set warna kuning transparan
+   
+   b. AOE Effect Prefab:
+      - Empty GameObject dengan Circle sprite
+      - Add AOEEffect script
+      - Set warna merah
+
+8. PLAYER SETUP:
+   a. Pastikan Player memiliki:
+      - Tag: "Player"
+      - PlayerHealth script
+      - PlayerAttack script
+      - PlayerMovement script
+   
+   b. Untuk sistem ammo, enable "Use Ammo" di PlayerAttack
+
+9. LAYER SETUP:
+   - Player Layer
+   - Enemy Layer
+   - PlayerAttack Layer (untuk attack collider)
+   
+   Set Physics2D collision matrix agar:
+   - Enemy bisa collide dengan Player
+   - PlayerAttack bisa collide dengan Enemy
+
+10. SCRIPT YANG TELAH DIBUAT:
+    - Level2GameManager.cs: Mengatur gameplay Level 2 dengan wave system
+    - ItemPickup.cs: Script untuk health dan ammo pickup
+    - AOEEffect.cs: Visual effect untuk AOE attack boss
+    - SpawnPointGizmo.cs: Helper untuk visualisasi spawn point di editor
+    - WaveAnnouncement.cs: Efek visual untuk pengumuman wave/boss
+    
+    UPDATE PADA SCRIPT EXISTING:
+    - PlayerHealth.cs: Ditambahkan method Heal()
+    - PlayerAttack.cs: Ditambahkan sistem ammo dan method AddAmmo()
+    - EnemyHealth.cs: Updated untuk drop item di posisi musuh mati
+    - PauseManager.cs: Updated dengan background image support
+
+11. TEST CHECKLIST:
+    - Wave spawn berfungsi
+    - Musuh bergerak ke player
+    - Player bisa serang musuh (3 hit untuk bawahan)
+    - Boss muncul setelah semua wave selesai
+    - Boss butuh 10 hit (sesuai setting)
+    - Boss bisa summon minion
+    - Pause menu muncul dengan ESC/P
+    - Victory condition saat boss mati
+    
+    NOTE: Item drop telah dinonaktifkan. Musuh tidak akan drop item apapun. 
